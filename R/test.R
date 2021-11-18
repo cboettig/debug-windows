@@ -17,7 +17,7 @@ test <- function(){
 #  "https://hash-archive.org",                            
 #  "https://hash-archive.carlboettiger.info",             
   "https://archive.softwareheritage.org",                
-#  "https://cn.dataone.org",                              
+  "https://cn.dataone.org",                              
   "https://zenodo.org",                                  
   "/home/cboettig/.local/share/R/contentid",
   "")
