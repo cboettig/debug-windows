@@ -5,7 +5,7 @@
 test <- function(){
   id <- "hash://sha256/e17632191c0487128aa6d1ecb932b655157ad7eab26f2749c9797ce65bbbc130"
   #contentid::resolve(id)
-  httr::GET("https://hash-archive.carlboettiger.info")
+  httr::GET(paste0("https://hash-archive.carlboettiger.info/api/sources/",id))
   # contentid:::sources_ha(id, host = "https://hash-archive.carlboettiger.info")
   # contentid:::filter_sources(out, registries, cols)
   
