@@ -20,23 +20,26 @@ test <- function(){
 #  "https://cn.dataone.org",                              
 #  "https://zenodo.org",                                  
 #  "/home/cboettig/.local/share/R/contentid"
-  )
+  "")
+  
+  cols = c("source", "date")
+  all = TRUE
   
   registries <- contentid:::expand_registry_urls(registries)
   types <- contentid:::detect_registry_type(registries)
   
   active_registries <- registries[types == "content_store"]
-  out <- generic_source(id, 
+  out <- contentid:::generic_source(id, 
                         registries = active_registries, 
                         type = "content_store")
   
-  if (all(is.na(out$source)) | all) {
-    remote <- types[types %in% c(MIXED, REMOTES)]
+  if (all || all(is.na(out$source))) {
+    remote <- types[types %in% c(contentid:::MIXED, contentid:::REMOTES)]
     remote_out <- lapply(
       remote,
       function(type) {
         active_registries <- registries[types == type]
-        generic_source(id,
+        contentid:::generic_source(id,
           registries = active_registries,
           type = type
         )
