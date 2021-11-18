@@ -10,5 +10,5 @@ test <- function(){
   contentid:::sources_zenodo(id)
   contentid:::sources_swh(id)
   contentid:::sources_store(id)
-  
+  contentid:::sources_tsv(id)
 }
