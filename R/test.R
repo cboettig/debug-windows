@@ -9,5 +9,6 @@ test <- function(){
   contentid:::sources_dataone(id)
   contentid:::sources_zenodo(id)
   contentid:::sources_swh(id)
+  contentid:::sources_store(id)
   
 }
