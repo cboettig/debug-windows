@@ -13,14 +13,9 @@ test <- function(){
   if (status >= 400) 
     out <- data.frame()
   request <- paste(host, endpoint, query, sep = "/")  
-  
-#  result <- tryCatch({
-    response <- httr::GET(request)
-    result <- httr::content(response, "parsed", "application/json")
- # }, error = function(e) {
-#    message(e)
-#    list()
-#  }, finally = list())
+  response <- httr::GET(request)
+#  result <- httr::content(response, "parsed", "application/json")
+
   
   
 
