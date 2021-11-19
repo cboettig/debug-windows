@@ -14,15 +14,10 @@ test <- function(){
   
   handle <- curl::new_handle(nobody = TRUE, customrequest = "GET")
   handle <- curl::handle_setopt(handle, http09_allowed = TRUE)
-  
-  
   test <- curl::curl_fetch_memory(host, handle)
-  
-
-  
-  
-  request <- paste(host, endpoint, query, sep = "/")  
-  response <- httr::GET(request)
+  response <- httr::GET(host)
+  #request <- paste(host, endpoint, query, sep = "/")  
+  #response <- httr::GET(request)
 
   
   
