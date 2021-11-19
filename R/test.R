@@ -4,6 +4,10 @@
 #' @export
 test <- function(){
   id <- "hash://sha256/e17632191c0487128aa6d1ecb932b655157ad7eab26f2749c9797ce65bbbc130"
+  
+  host <- "https://hash-archive.carlboettiger.info"
+  contentid:::hash_archive_api(id, "api/sources", host)
+  
   #contentid::resolve(id)
   request <- paste0("https://hash-archive.carlboettiger.info/api/sources/",id)
   result <- tryCatch({
@@ -14,13 +18,9 @@ test <- function(){
     list()
   }, finally = list())
   if (length(result) == 0) 
-    return(null_query())
+    return(contentid:::null_query())
   out <- lapply(result, contentid:::format_hashachiveorg)
   do.call(rbind, lapply(out, as.data.frame, stringsAsFactors = FALSE))
-  
-  # contentid:::sources_ha(id, host = "https://hash-archive.carlboettiger.info")
-  # contentid:::filter_sources(out, registries, cols)
-  
   
 }
 
