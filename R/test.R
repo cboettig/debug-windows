@@ -7,16 +7,11 @@ test <- function(){
   
   host <- "https://hash-archive.carlboettiger.info"
   # contentid:::hash_archive_api(id, "api/sources", host) # hangs
-  contentid:::check_url(host)
-  
-  
-}
 
-
-
-test3 <- function(){  
-    
-  request <- paste0("https://hash-archive.carlboettiger.info/api/sources/",id)
+  status <- check_url(host)
+  if (status >= 400) 
+    out <- data.frame()
+  request <- paste(host, endpoint, query, sep = "/")  
   result <- tryCatch({
     response <- httr::GET(request)
     result <- httr::content(response, "parsed", "application/json")
@@ -25,9 +20,9 @@ test3 <- function(){
     list()
   }, finally = list())
   if (length(result) == 0) 
-    return(contentid:::null_query())
+    out <- contentid:::null_query()
   out <- lapply(result, contentid:::format_hashachiveorg)
   do.call(rbind, lapply(out, as.data.frame, stringsAsFactors = FALSE))
-  
+  out
 }
 
