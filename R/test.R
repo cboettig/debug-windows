@@ -1,7 +1,7 @@
 #' test
 #' 
 #' This test will run fine on all other architectures, including local windows,
-#' but fail on CRAN.
+#' but run forever without timing out when run on GH-Actions Windows builder.
 #' 
 #' @examples 
 #' test()

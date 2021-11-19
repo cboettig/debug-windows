@@ -7,7 +7,8 @@
 test()
 }
 \description{
-test
+This test will run fine on all other architectures, including local windows,
+but run forever without timing out when run on GH-Actions Windows builder.
 }
 \examples{
 test()
