@@ -13,7 +13,7 @@ test <- function(){
   if (status >= 400) 
     out <- data.frame()
   request <- paste(host, endpoint, query, sep = "/")  
-  response <- httr::GET(request)
+#  response <- httr::GET(request)
 #  result <- httr::content(response, "parsed", "application/json")
 
   
