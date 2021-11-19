@@ -13,18 +13,16 @@ test <- function(){
   if (status >= 400) 
     out <- data.frame()
   request <- paste(host, endpoint, query, sep = "/")  
-  result <- tryCatch({
+  
+#  result <- tryCatch({
     response <- httr::GET(request)
     result <- httr::content(response, "parsed", "application/json")
-  }, error = function(e) {
-    message(e)
-    list()
-  }, finally = list())
-  if (length(result) == 0) 
-    out <- contentid:::null_query()
+ # }, error = function(e) {
+#    message(e)
+#    list()
+#  }, finally = list())
   
-  #out <- lapply(result, contentid:::format_hashachiveorg)
-  #do.call(rbind, lapply(out, as.data.frame, stringsAsFactors = FALSE))
-  #out
+  
+
 }
 
