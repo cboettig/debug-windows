@@ -10,6 +10,8 @@ test <- function(){
   endpoint <- "api/sources"
   query <- id
   
+  #contentid:::check_url(host)
+  
   ver <- curl::curl_version()
   print(ver$version)
   handle <- curl::new_handle(nobody = TRUE, customrequest = "GET")
@@ -20,7 +22,7 @@ test <- function(){
   
   
   resp <- tryCatch(
-    curl::curl_fetch_memory(file, handle), 
+    curl::curl_fetch_memory(host, handle), 
     error = function(e) {
       warning(as.character(e), call. = FALSE)
       list()
