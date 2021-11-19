@@ -12,15 +12,12 @@ test <- function(){
   
   #contentid:::check_url(host)
   
-  ver <- curl::curl_version()
-  print(ver$version)
   handle <- curl::new_handle(nobody = TRUE, customrequest = "GET")
   
-  if (utils::compareVersion(ver$version, "7.68.0") >= 0) {
-    handle <- curl::handle_setopt(handle, http09_allowed = TRUE)
-  }
+  #handle <- curl::handle_setopt(handle, http09_allowed = TRUE)
   
-  curl::curl_fetch_memory(host, handle)
+  
+  test <- curl::curl_fetch_memory(host, handle)
   
 
   
