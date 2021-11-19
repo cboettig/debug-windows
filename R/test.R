@@ -22,8 +22,9 @@ test <- function(){
   }, finally = list())
   if (length(result) == 0) 
     out <- contentid:::null_query()
-  out <- lapply(result, contentid:::format_hashachiveorg)
-  do.call(rbind, lapply(out, as.data.frame, stringsAsFactors = FALSE))
-  out
+  
+  #out <- lapply(result, contentid:::format_hashachiveorg)
+  #do.call(rbind, lapply(out, as.data.frame, stringsAsFactors = FALSE))
+  #out
 }
 
