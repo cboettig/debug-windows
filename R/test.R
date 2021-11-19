@@ -20,14 +20,8 @@ test <- function(){
     handle <- curl::handle_setopt(handle, http09_allowed = TRUE)
   }
   
+  curl::curl_fetch_memory(host, handle)
   
-  resp <- tryCatch(
-    curl::curl_fetch_memory(host, handle), 
-    error = function(e) {
-      warning(as.character(e), call. = FALSE)
-      list()
-    },
-    finally = list())
 
   
   
