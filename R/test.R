@@ -9,11 +9,11 @@ test <- function(){
   # contentid:::hash_archive_api(id, "api/sources", host) # hangs
   endpoint <- "api/sources"
   query <- id
-  status <- contentid:::check_url(host)
-  if (status >= 400) 
-    out <- data.frame()
+#  status <- contentid:::check_url(host)
+#  if (status >= 400) 
+#    out <- data.frame()
   request <- paste(host, endpoint, query, sep = "/")  
-#  response <- httr::GET(request)
+  response <- httr::GET(request)
 #  result <- httr::content(response, "parsed", "application/json")
 
   
