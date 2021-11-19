@@ -12,8 +12,7 @@ test <- function(){
   
   #contentid:::check_url(host)
   
-  #handle <- curl::new_handle(nobody = TRUE, customrequest = "GET")
-  
+  handle <- curl::new_handle(nobody = TRUE, customrequest = "GET")
   handle <- curl::handle_setopt(handle, http09_allowed = TRUE)
   
   
